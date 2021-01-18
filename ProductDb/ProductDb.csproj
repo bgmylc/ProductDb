@@ -173,6 +173,10 @@
     <Compile Include="Migrations\20210118151445_initialize.designer.cs">
       <DependentUpon>20210118151445_initialize.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20210118164243_Update-Database --verbose.cs" />
+    <Compile Include="Migrations\20210118164243_Update-Database --verbose.designer.cs">
+      <DependentUpon>20210118164243_Update-Database --verbose.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\ProductsDbCntxtModelSnapshot.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Product.cs" />
