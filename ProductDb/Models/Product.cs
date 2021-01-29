@@ -11,12 +11,14 @@ namespace ProductDb.Models
     {
 
         public int ID { get; set; }
-        [Required]
+        
+     
         public string Name { get; set; }
         public string Info { get; set; }
         public decimal Price { get; set; }
         
 
+        [Required]
         public int CategoryID { get; set; }
         public Category Category { get; set; }
       

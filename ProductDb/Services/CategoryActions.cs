@@ -25,6 +25,15 @@ namespace ProductDb.Services
 
         }
 
+        public bool CatNameEmpty(Category category)
+        {
+            bool NameEmpty = false;
+            if (category.Name == "")
+            {
+                NameEmpty = true;
+            }
+            return NameEmpty;
+        }
         public void AddCategory(Category category)
         {
             //Adding a new category
@@ -48,7 +57,31 @@ namespace ProductDb.Services
             dbCntxt.SaveChanges();
 
         }
+        public bool DoesCategoryExist(Category currentCategory)
+        {
+            bool checkCat = false;
+            foreach (var category in dbCntxt.Categories)
+            {
+                if (category.Name == currentCategory.Name)
+                {
+                    checkCat = true;
+                }
+            }
+            return checkCat;
+        }
 
+        public bool IsCategoryEmpty(Category currentCategory)
+        {
+            bool checkNotEmpty = true;
+            foreach (var product in dbCntxt.Products)
+            {
+                if (product.CategoryID == currentCategory.ID)
+                {
+                    checkNotEmpty = false;
+                }
+            }
+            return checkNotEmpty;
+        }
 
 
 

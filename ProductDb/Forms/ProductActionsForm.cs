@@ -52,8 +52,22 @@ namespace ProductDb.Forms
 
             product.Info = textBoxProductInfo.Text;
 
-            productActions.AddProduct(product);
-            getProductsToSelect();
+
+            if (productActions.DoesProductExist(product))
+            {
+                MessageBox.Show($"Product {product.Name} already exists. Please try adding another product.", "Existing Product");
+                
+            }
+            else if (productActions.ProNameEmpty(product))
+            {
+                MessageBox.Show("Product name cannot be empty! Please enter a name.", "Enter a name");
+            }
+            else
+            {
+                productActions.AddProduct(product);
+                getProductsToSelect();
+            }
+            
 
         }
 

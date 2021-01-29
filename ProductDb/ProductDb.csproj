@@ -205,6 +205,10 @@
     <Compile Include="Migrations\20210128131343_Update.designer.cs">
       <DependentUpon>20210128131343_Update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20210129082446_AnotherUpdate.cs" />
+    <Compile Include="Migrations\20210129082446_AnotherUpdate.designer.cs">
+      <DependentUpon>20210129082446_AnotherUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\ProductsDbCntxtModelSnapshot.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Product.cs" />

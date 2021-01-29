@@ -26,7 +26,15 @@ namespace ProductDb.Services
             return dbCntxt.Products.Find(ID);
         
         }
-
+        public bool ProNameEmpty(Product product)
+        {
+            bool NameEmpty = false;
+            if (product.Name == "")
+            {
+                NameEmpty = true;
+            }
+            return NameEmpty;
+        }
         public void AddProduct(Product product)
         {
             //Adding a new product
@@ -51,7 +59,20 @@ namespace ProductDb.Services
         
         }
 
-
+        public bool DoesProductExist(Product currentProduct)
+        {
+            bool checkPro = false;
+            foreach (var product in dbCntxt.Products)
+            {
+                if (product.Name == currentProduct.Name)
+                {
+                    checkPro = true;
+                }
+            }
+            return checkPro;
+        
+        
+        }
 
 
 

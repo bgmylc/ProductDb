@@ -35,8 +35,20 @@ namespace ProductDb.Forms
 
             category.Info = textBoxCatInfo.Text;
 
-            categoryActions.AddCategory(category);
-            getCategoriesToSelect();
+            if (categoryActions.DoesCategoryExist(category))
+            {
+                MessageBox.Show($"Category {category.Name} already exists. Try adding another category.","Existing Category");
+            }
+            else if (categoryActions.CatNameEmpty(category))
+            {
+                MessageBox.Show("Category name cannot be empty! Please enter a name.", "Enter a name");
+            }
+            else
+            {
+                categoryActions.AddCategory(category);
+                getCategoriesToSelect();
+            }
+            
         }
         private void comboBoxCategories_SelectionChangeCommitted(object sender, EventArgs e)
         {
@@ -61,8 +73,16 @@ namespace ProductDb.Forms
 
         private void buttonCatDelete_Click(object sender, EventArgs e)
         {
-            categoryActions.DeleteCategory(selectedCategory);
-            getCategoriesToSelect();
+            if (!categoryActions.IsCategoryEmpty(selectedCategory))
+            {
+                MessageBox.Show($"{selectedCategory.Name} category is not empty. You can't delete it!", "Filled Category");
+            }
+            else
+            {
+                categoryActions.DeleteCategory(selectedCategory);
+                getCategoriesToSelect();
+            }
+            
         }
 
         private void buttonCatList_Click(object sender, EventArgs e)
